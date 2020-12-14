@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import seedData from './seed';
 import './App.css';
+import './style/navbar.css';
+import Card from './components/card';
 
 function App() {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+  // const [seed, setSeed] = useState(seedData);
+  const [currentPointer, setCurrentPointer] = useState(0);
+  const [showAns, setShowAns] = useState(false);
+
+  const showCard = () => {
+    setShowAns(!showAns);
+  };
+
+  const changeCard = () => {
+    setCurrentPointer(Math.floor(Math.random() * seedData.length));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+      <nav className="navbar">
+        <h1>Flash cards</h1>
+      </nav>
+      <section className="wrapper">
+        <Card cardData={seedData[currentPointer]} flag={showAns} />
+        <div className="buttons">
+          <button className="btn" onClick={showCard}>
+            Show
+          </button>
+          <button className="btn" onClick={changeCard}>
+            Next
+          </button>
+        </div>
+      </section>
     </div>
   );
 }

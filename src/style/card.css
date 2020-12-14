@@ -1,0 +1,35 @@
+.card-header div {
+    width: 300px;
+    height: 200px;
+    /* overflow: hidden; */
+    /* background-color: rebeccapurple; */
+}
+
+.card-header img {
+    display: inline-block;
+    height: auto;
+    width: 300px;
+    /* border-radius: 10px; */
+    /* opacity: 0.6; */
+}
+
+.card-header {
+    margin-top: 60px;
+    padding: 30px;
+    border: 1px solid #000000;
+    /* border-radius: 10px; */
+    /* width: 50%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 50%;
+    transition: all 0.3s ease;
+}
+
+.card-header h1 {
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
